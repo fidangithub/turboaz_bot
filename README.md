@@ -29,8 +29,8 @@ yazıb, içinə bu faylın məzmununu yapışdıra bilərsən.
 ### 4. Token və Chat ID-ni "Secrets" olaraq əlavə et
 Repo səhifəsində:
 - Settings → Secrets and variables → Actions → "New repository secret"
-- 1-ci secret: Name = `TELEGRAM_BOT_TOKEN`, Value = `8948722651:AAHt5Eok78ijms4_YS0TeOo0f39A2Xx7QdY`
-- 2-ci secret: Name = `TELEGRAM_CHAT_ID`, Value = `848837342` 
+- 1-ci secret: Name = `TELEGRAM_BOT_TOKEN`, Value = sənin bot tokenin
+- 2-ci secret: Name = `TELEGRAM_CHAT_ID`, Value = `848837342`
 
 Bu üsulla token kodun içində açıq görünmür.
 
