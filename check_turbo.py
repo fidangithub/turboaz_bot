@@ -148,9 +148,20 @@ def main():
     print(f"Axtarış: {SEARCH_URL}")
     seen_ids = load_seen_ids()
     first_run = len(seen_ids) == 0
+    if not os.path.exists(SEEN_FILE):
+        save_seen_ids(seen_ids)
 
     try:
         html = fetch_page(SEARCH_URL)
+    except urllib.error.HTTPError as e:
+        if e.code == 403:
+            print(
+                "XƏBƏRDARLIQ: turbo.az sorğunu 403 ilə blokladı, bu dəfə yoxlama atlanır.",
+                file=sys.stderr,
+            )
+            return
+        print(f"Səhifəni çəkmək mümkün olmadı: {e}", file=sys.stderr)
+        sys.exit(1)
     except Exception as e:
         print(f"Səhifəni çəkmək mümkün olmadı: {e}", file=sys.stderr)
         sys.exit(1)
